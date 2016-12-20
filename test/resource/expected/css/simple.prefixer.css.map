@@ -1,0 +1,1 @@
+{"version":3,"sources":["css/simple.css"],"names":[],"mappings":"AAAA;IACI,UAAU;IACV,WAAW;CACd;;AAED;IACI,qBAAc;IAAd,qBAAc;IAAd,cAAc;IACd,cAAc;CACjB","file":"simple.prefixer.css","sourcesContent":["html, body {\n    margin: 0;\n    padding: 0;\n}\n\nbody .container {\n    display: flex;\n    padding: 20px;\n}"],"sourceRoot":"../.."}

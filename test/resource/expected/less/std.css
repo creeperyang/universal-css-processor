@@ -1,0 +1,17 @@
+.box {
+  border-radius: 4px;
+  padding: 12.5% 12px;
+  background-color: #6c94be;
+  transition: all 0.5s ease;
+  width: 50%;
+  color: #1a1a1a;
+}
+.box:hover {
+  transform: scale(1.1);
+}
+.box-title {
+  transform: translate3d(0, 0, 0);
+  display: flex;
+}
+
+/*# sourceMappingURL=std.css.map */

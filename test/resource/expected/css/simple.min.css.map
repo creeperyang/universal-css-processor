@@ -1,0 +1,1 @@
+{"version":3,"sources":["css/simple.css"],"names":[],"mappings":"AAAA,UACI,SAAU,AACV,SAAW,CACd,AAED,gBACI,aAAc,AACd,YAAc,CACjB","file":"simple.min.css","sourcesContent":["html, body {\n    margin: 0;\n    padding: 0;\n}\n\nbody .container {\n    display: flex;\n    padding: 20px;\n}"],"sourceRoot":"../.."}

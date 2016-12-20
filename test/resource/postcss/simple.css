@@ -1,0 +1,13 @@
+$bgColor: #690;
+$fontColor: #444;
+
+.box {
+    width: 50%;
+    color: $fontColor;
+    background-color: $bgColor;
+
+    &-title {
+        transform: translate3d(0,0,0);
+        display: flex;
+    }
+}

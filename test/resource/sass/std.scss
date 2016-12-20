@@ -1,0 +1,15 @@
+$color: #333;
+
+@mixin box($bg, $shadowColor, $shadowSize) {
+    background-color: $bg;
+    box-shadow: 0 0 $shadowSize $shadowColor;
+}
+
+.box {
+    color: invert($color);
+    @include box($color, darken($color, 10%), 4px);
+    &-title {
+        transform: translate3d(0,0,0);
+        display: flex;
+    }
+}

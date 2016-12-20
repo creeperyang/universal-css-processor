@@ -1,0 +1,13 @@
+.box {
+  color: #cccccc;
+  background-color: #333;
+  box-shadow: 0 0 4px #1a1a1a; }
+  .box-title {
+    transform: translate3d(0, 0, 0);
+    display: flex; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+/*# sourceMappingURL=import.css.map */

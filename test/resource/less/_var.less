@@ -1,0 +1,14 @@
+@font-color: lighten(#000, 10%);
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+@width: 0.618;
+
+.box() {
+    border-radius: 4px;
+    padding: percentage(@width / 4) 12px;
+    background-color: @light-blue;
+    transition: all 0.5s ease;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
