@@ -1,0 +1,7 @@
+# Mac system
+.DS_Store
+
+# Lib
+node_modules
+*.log
+._*
