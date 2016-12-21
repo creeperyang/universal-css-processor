@@ -12,7 +12,11 @@ npm i --save universal-css-processor
 
 `universal-css-processor` offers a simple and universal API to handle `less/sass/postcss` and generate sourcemap.
 
-And built-in processors include `less/sass/postcss/autoprefixer/minify/concat/css`.
+### process(glob, processors, options)
+
+- `glob` is array of globs, such as `[styles/**/*.less]`, used to find/locate files to be processed.
+- `processors` is array of processor configs. Every config is like `{ name: String, options: Object}`, and the `option` will be passed to processor. And built-in processors include `less/sass/scss/postcss/autoprefixer/minify/concat/css`.
+- `options` is the config for all processors, such as `{ map: Boolean, base: String}`.
 
 The typical usage is below:
 

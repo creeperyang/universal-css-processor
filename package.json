@@ -51,6 +51,9 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1"
   },
+  "engines": {
+    "node": ">=6"
+  },
   "ava": {
     "files": [
       "test/*.spec.js"
