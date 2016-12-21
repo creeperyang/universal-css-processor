@@ -36,7 +36,7 @@ test('sourceMapInit should load sourceMap', t => {
     const file = File.from(join(__dirname, 'resource/expected/css/simple.min.css'))
     return sourceMapInit(file, { loadMaps: true }).then(f => {
         t.deepEqual(f.sourceMap.mappings, JSON.parse(
-            readFileSync('resource/expected/css/simple.min.css.map')
+            readFileSync(join(__dirname, 'resource/expected/css/simple.min.css.map'))
         ).mappings)
     })
 })
