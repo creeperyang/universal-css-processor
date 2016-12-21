@@ -1,4 +1,4 @@
-# universal-css-processor
+# universal-css-processor [![Build Status](https://travis-ci.org/creeperyang/universal-css-processor.svg?branch=master)](https://travis-ci.org/creeperyang/universal-css-processor)
 
 > Process sass/less/postcss and generate sourcemap correctly.
 
