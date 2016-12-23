@@ -8,7 +8,7 @@ const processLess = require('../lib/processors/less')
 const processSass = require('../lib/processors/sass')
 const concat = require('../lib/processors/concat')
 
-test('should concat css and generate sourcemap correctly', t => {
+test('should concat css and generate sourcemap correctly when destFile is File', t => {
     const styleFile1 = new File({
         cwd: __dirname,
         base: join(__dirname, 'resource'),
@@ -48,6 +48,43 @@ test('should concat css and generate sourcemap correctly', t => {
     }).then(file => {
         joinedFile = file
         return sourceMapWrite(file, '.', { destPath })
+    }).then(mapFile => {
+        t.deepEqual(
+            joinedFile.contents,
+            readFileSync(join(joinedFile.cwd, destPath, joinedFile.relative))
+        )
+        t.deepEqual(
+            mapFile.contents,
+            readFileSync(join(mapFile.cwd, destPath, mapFile.relative))
+        )
+    })
+})
+
+test('should concat css and generate sourcemap correctly when destFile is string', t => {
+    const styleFile1 = new File({
+        cwd: __dirname,
+        base: join(__dirname, 'resource'),
+        path: join(__dirname, 'resource/css/simple.css')
+    }, { loadContents: true })
+    const styleFile2 = new File({
+        cwd: __dirname,
+        base: join(__dirname, 'resource'),
+        path: join(__dirname, 'resource/css/std.css')
+    }, { loadContents: true })
+    const destPath = 'resource/expected'
+    let joinedFile
+
+    return Promise.all([
+        sourceMapInit(styleFile1),
+        sourceMapInit(styleFile2)
+    ]).then(files => {
+        t.is(files.length, 2)
+        return concat(files, {
+            destFile: 'concat2.css'
+        })
+    }).then(file => {
+        joinedFile = file
+        return sourceMapWrite(file, '.', { destPath, includeContent: false })
     }).then(mapFile => {
         t.deepEqual(
             joinedFile.contents,
