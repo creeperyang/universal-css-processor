@@ -35,7 +35,8 @@ ucprocessor.process(
             name: 'concat',
             // offer options
             options: {
-                destFile: 'all.css'
+                destFile: 'all.css',
+                rebaseUrl: true
             }
         },
         {
