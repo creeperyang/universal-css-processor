@@ -43,7 +43,8 @@ test('should concat css and generate sourcemap correctly when destFile is File',
     ]).then(files => {
         t.is(files.length, 3)
         return concat(files, {
-            destFile
+            destFile,
+            rebaseUrl: false
         })
     }).then(file => {
         joinedFile = file
@@ -80,7 +81,8 @@ test('should concat css and generate sourcemap correctly when destFile is string
     ]).then(files => {
         t.is(files.length, 2)
         return concat(files, {
-            destFile: 'concat2.css'
+            destFile: 'concat2.css',
+            rebaseUrl: true
         })
     }).then(file => {
         joinedFile = file
