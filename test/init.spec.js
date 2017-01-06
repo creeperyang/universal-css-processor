@@ -50,3 +50,14 @@ test('sourceMapInit should generate sourceMap', t => {
         t.is(f.sourceMap.mappings, 'CAAC;KACI;KACA;;;CAGJ;KACI;KACA')
     })
 })
+
+test('sourceMapInit should remove map comment', t => {
+    const file = File.from('simple.css')
+    file.contents = new Buffer(`*{}\n/*# sourceMappingURL=concat.css.map */`)
+    return sourceMapInit(file, {
+        loadMaps: false,
+        identityMap: false
+    }).then(f => {
+        t.is(f.contents.toString(), `*{}\n`)
+    })
+})
