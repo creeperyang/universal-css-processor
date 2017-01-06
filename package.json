@@ -42,7 +42,7 @@
     "postcss": "^5.2.5",
     "precss": "^1.4.0",
     "source-map": "^0.5.6",
-    "sourcemap-updater": "^0.1.0",
+    "sourcemap-updater": "^0.1.1",
     "strip-bom": "^3.0.0",
     "vinyl-sourcemaps-apply": "^0.2.1"
   },
