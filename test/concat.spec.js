@@ -98,3 +98,46 @@ test('should concat css and generate sourcemap correctly when destFile is string
         )
     })
 })
+
+test('should concat css and generate sourcemap correctly when rebase url', t => {
+    const styleFile3 = new File({
+        cwd: __dirname,
+        base: join(__dirname, 'resource'),
+        path: join(__dirname, 'resource/css/simple.css')
+    }, { loadContents: true })
+    const styleFile2 = new File({
+        cwd: __dirname,
+        base: join(__dirname, 'resource'),
+        path: join(__dirname, 'resource/css/std.css')
+    }, { loadContents: true })
+    const styleFile1 = new File({
+        cwd: __dirname,
+        base: join(__dirname, 'resource'),
+        path: join(__dirname, 'resource/css/unusual.css')
+    }, { loadContents: true })
+    const destPath = 'resource/expected'
+    let joinedFile
+
+    return Promise.all([
+        sourceMapInit(styleFile1),
+        sourceMapInit(styleFile2),
+        sourceMapInit(styleFile3)
+    ]).then(files => {
+        return concat(files, {
+            destFile: 'concated.css',
+            rebaseUrl: true
+        })
+    }).then(file => {
+        joinedFile = file
+        return sourceMapWrite(file, '.', { destPath, includeContent: false })
+    }).then(mapFile => {
+        t.deepEqual(
+            joinedFile.contents,
+            readFileSync(join(joinedFile.cwd, destPath, joinedFile.relative))
+        )
+        t.deepEqual(
+            mapFile.contents,
+            readFileSync(join(mapFile.cwd, destPath, mapFile.relative))
+        )
+    })
+})
