@@ -1,6 +1,6 @@
 {
   "name": "universal-css-processor",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "process style universally and generate sourcemap",
   "main": "lib/index.js",
   "scripts": {
